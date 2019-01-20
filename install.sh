@@ -5,7 +5,6 @@ if [ -z $BASH_VERSION ] ; then
 	echo -e "You must run this script using bash." 1>&2
 	exit 1
 fi
-set -x
 
 
 # Make sure we are running as root
@@ -67,9 +66,11 @@ pip install --upgrade -r requirements.txt
 # to make sure the requirements are up to date and the right packages are installed
 # BUG: remove pkg-resources line in requirements.txt if it exists!
 #     https://stackoverflow.com/questions/39577984/what-is-pkg-resources-0-0-0-in-output-of-pip-freeze-command
+# To upgrade all pip packages run
+# $ pip freeze |sed -ne 's/==.*//p' |xargs pip install -U --
 
 echo -e ""
 echo -e "--------------------------------------------------------------------------------"
-echo -e "Install complete. Run the project using ./run.sh"
+echo -e "Install complete. Check README.md for instructions on setting up the game"
 echo -e "--------------------------------------------------------------------------------"
 echo -e ""
