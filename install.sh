@@ -44,6 +44,9 @@ echo -e ""
 # this will probably show python version 2.7
 python --version
 
+# install venv
+apt-get install python3-venv
+
 # this creates a copy of the python3 environment in a folder called venv
 python3 -m venv venv
 
