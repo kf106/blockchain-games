@@ -10,7 +10,7 @@ This sets up the relevant Python virtual environment and install the required pa
 
 To run the asset bank, execute:
     ./bank-run.sh
-This starts a local webserver. See http://localhost:5000/admin for the admin panel.
+This starts a local webserver. See http://localhost:5000/admin for the admin panel. Signup information for players is at http://localhost:5000/
 
 To run the player client, execute:
     ./client-run.sh
