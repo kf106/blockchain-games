@@ -34,19 +34,30 @@ then
   else
     echo -e "Starting game player blockchain daemon."
     # run with reindex in case there was a broken shutdown
-    multichaind -datadir=~/.multichain-player -port=19255 -rpcport=19254 game -reindex=1 -daemon
+    multichaind -datadir=~/.multichain-player -port=19255 -rpcport=19254 -reindex=1 game -daemon
   fi
 else
-  # create multichain player instance by connecting to asset bank, extract your local address
-  # and send it to the asset bank webserver for automatic connection
-  mkdir ~/.multichain-player
-  multichaind -datadir=.multichain-player -port=19255 -rpcport=19254 $1 
-  myaddress=$(multichaind -datadir=~/.multichain-player -port=19255 -rpcport=19254 $1)
-  #  | python -c "import json,sys;obj=json.load(sys.stdin);print(obj[0]['address']);"
-  echo -e "My address: $myaddress"
+  if [ -z "$1" ]
+  then
+    echo -e "No blockchain address supplied"
+	exit 0
+  else
+    # create multichain player instance by connecting to asset bank, extract your local address
+    # and send it to the asset bank webserver for automatic connection
+    mkdir ~/.multichain-player
+    gameblockchain=$1
+    myaddress=$(multichaind -datadir=~/.multichain-player -port=19255 -rpcport=19254 $1 | grep -P -i -o '(?<=grant )\S+' | sed -r 's/^\W|\W$//g')
+    echo -e "My address: $myaddress"
+    # now we get the asset bank's IP address from the command line $1 parameter
+    assetbankip=${gameblockchain%:*}  # retain the part before :
+    assetbankip=${assetbankip##*@}  # retain the part after @
+    echo -e "Server IP: $assetbankip"
+    # POST 
+echo $NAME
+  fi
 fi
 
 # this runs the application
-#echo -e "Starting asset bank interface"
-#export FLASK_APP=bank-app.py
-#flask run --host=0.0.0.0
+# echo -e "Starting client interface"
+# export FLASK_RUN_PORT=5001
+# flask run --host=0.0.0.0

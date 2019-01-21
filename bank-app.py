@@ -21,9 +21,11 @@ app.config['SECRET_KEY'] = 'bankapp450i46##'
 # Route for serving up the index page
 @app.route('/')
 def index():
+    
     return render_template(
         'bank/index.html',
          nodeaddress = nodeaddress
+         signupaddress = signupaddress
     )
 
 # Route for serving up the admin page
