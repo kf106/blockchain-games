@@ -1,22 +1,25 @@
-# Asynchronous data-push using Flask-SocketIO
+# MultiChain Game Engine
 
-Example of asynchronous flask communication with web page. It can be used as a template for producting Python 3.5 applications that use a web page for monitoring live datastreams.
+This repository provides a sample setup for a blockchain-backed game, using MultiChain (http://www.multichain.com) as the backend blockchain. See game-blockchain.pdf for details of the game concepts.
 
-This repository is a sample flask application that updates a webpage using a background thread for all users connected, by outputting a new random number every 5s.
+The game contains two main components: the asset bank and the player client.
+## Installation
+For either asset bank or client run:
+    sudo ./install.sh
+This sets up the relevant Python virtual environment and install the required packages.
 
-It is based on the very useful Flask-SocketIO code from Miguel Grinberg, and does the same as Shane Lynn's async_flask demo, but for Python 3.5.
+To run the asset bank, execute:
+    ./bank-run.sh
+This starts a local webserver. See http://localhost:5000/admin for the admin panel.
 
-https://github.com/miguelgrinberg/Flask-SocketIO
+To run the player client, execute:
+    ./client-run.sh
 
-https://github.com/shanealynn/async_flask/
+## Asset Bank
+The asset bank creates the original blockchain, issues assets (gold and xp in this example), issues further gold and xp as the bank's supplies run low, and automates player signup. 
 
-To use - please clone the repository and then set up your virtual environment using the requirements.txt file with pip and venv. You can achieve this automatically with:
+## Player Client
+The player client sets up a blockchain node, makes a signup request to the asset bank, and then launches the game. 
 
+Subsequently it just launches the game, as the blockchain node only needs configuration once.
 
-    ./install.sh
-
-Switch to the virtual environment and start the application with:
-
-    ./run.sh
-
-Visit http://localhost:5000 to see the updating numbers.

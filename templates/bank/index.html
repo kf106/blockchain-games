@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Bank Balances</title>
+    <title>Game Signup</title>
 </head>
 <body>
-    <h1>Asset Bank Index Page</h1>
-    <h2>Current Bank Balances</h2>
-    <div class="balances">
-        {{ balances }}
-    </div>
-    <h2>Player Addresses</h2>
-    <div class="players">
-        {{ players }}
-    </div>
-    <div>
-        <button value="Refresh Page" onClick="window.location.reload()">
+    <h1>Game Signup</h1>
+    <div class="info">
+       <p>If you are running the game for the first time, start it with the following command and parameter: 
+       <br><code>./client-run.sh {{ nodeaddress }}</code></p>
+       <p>If you have run the game before, your blockchain node should be present, so just run the game with the command:
+       <br><code>./client-run.sh</code></p>
     </div>
 </body>
 </html>

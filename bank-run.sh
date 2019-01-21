@@ -40,15 +40,10 @@ then
   fi
 else
   multichain-util create game
-  params=$(<~/.multichain/game/params.dat)
-  # Setting game blockchain parameters by replacing settings
-  #params="${params//anyone-can-connect = false/anyone-can-connect = true}"
-  #params="${params//anyone-can-send = false/anyone-can-connect = true}"
-  #params="${params//anyone-can-receive = false/anyone-can-connect = true}"
-  echo "${params}" > ~/.multichain/game/params.dat
   multichaind game -daemon
   # create the initial gold and experience coins
   bankaddress=$(multichain-cli game listpermissions issue | python -c "import json,sys;obj=json.load(sys.stdin);print(obj[0]['address']);")
+  sleep 5 # it can take a while for the blockchain to be ready
   multichain-cli game issue $bankaddress '{"name":"gold","open":true}' 10000 1
   multichain-cli game issue $bankaddress '{"name":"xp","open":true}' 10000 1
 fi
