@@ -1,5 +1,5 @@
 # MultiChain Game Engine
-This repository provides a sample setup for a blockchain-backed game, using MultiChain (http://www.multichain.com) as the backend blockchain. See game-blockchain.pdf for details of the game concepts.
+This repository provides a sample setup for a blockchain-backed game, using MultiChain (http://www.multichain.com) as the backend blockchain. See game-blockchain.pdf for details of the game concepts. Currently this is Linux only.
 
 The game contains two main components: the asset bank and the player client.
 ## Installation
