@@ -25,7 +25,6 @@ def index():
     return render_template(
         'bank/index.html',
          nodeaddress = nodeaddress
-         signupaddress = signupaddress
     )
 
 # Route for serving up the admin page
@@ -40,9 +39,24 @@ def admin():
     )
 
 # Route for automatic player signup
-@app.route('/bank/signup', methods=['POST'])
+@app.route('/signup', methods=['POST'])
 def login():
     if request.method == 'POST':
+        # get posted address (should do error checking on this)
+        sent_address = request.get_json()['address']
+        print("I got the following address:")
+        print(sent_address)
+        # grant connect send and receive
+        result = subprocess.check_output(["multichain-cli game grant " + sent_address + " connect,send,receive"], shell=True)
+        print(result)
+        # asset bank imports all addresses
+        result = subprocess.check_output(["multichain-cli game importaddress " + sent_address + " true"], shell=True)
+        print(result)           
+        # issue more of the assets (gold and xp) to the new address
+        result = subprocess.check_output(["multichain-cli game issuemore " + sent_address + " gold 100"], shell=True)
+        print(result)    
+        result = subprocess.check_output(["multichain-cli game issuemore " + sent_address + " xp 1"], shell=True)
+        print(result)    
         return render_template('bank/signup_success.html')       
     else:
        return render_template('bank/signup_error.html') 
