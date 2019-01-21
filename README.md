@@ -13,9 +13,9 @@ To run the asset bank, execute:
 
     ./bank-run.sh
     
-This starts a local webserver. See http://localhost:5000/admin for the admin panel. Signup information for players is at http://localhost:5000/
+This starts a local webserver. See http://localhost:5000/admin for the high-tech admin panel.
 
-To run the player client, execute:
+To run the player client for the first time, see the signup information at http://localhost:5000/ or if you're restarting the player client just execute:
 
      ./client-run.sh
 
