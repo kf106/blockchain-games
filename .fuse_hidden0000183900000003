@@ -61,7 +61,7 @@ else
       curl --header "Content-Type: application/json" --request POST --data '{"address":"'"$myaddress"'"}' $2
       # wait a few seconds for signup transaction to register
       echo -e "Starting game player blockchain daemon."
-      multichaind -datadir=~/.multichain-player -port=19255 -rpcport=19254 game -daemon     
+      multichaind -datadir=~/.multichain-player -port=19255 -rpcport=19254 game -daemon
     fi
   fi
 fi

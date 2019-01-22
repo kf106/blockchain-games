@@ -37,6 +37,8 @@ then
     # run with reindex in case there was a broken shutdown
     multichaind -datadir=~/.multichain-player -port=19255 -rpcport=19254 -reindex=1 game -daemon
   fi
+  # publish own address to the root stream when you start playing
+  multichain-cli -datadir=~/.multichain-player -port=19255 -rpcport=19254 game publish root playerEntry '{"json":{"address": "'$myaddress'"}}'
 
 # otherwise sign up, get address activated, and start node
 else
@@ -61,7 +63,9 @@ else
       curl --header "Content-Type: application/json" --request POST --data '{"address":"'"$myaddress"'"}' $2
       # wait a few seconds for signup transaction to register
       echo -e "Starting game player blockchain daemon."
-      multichaind -datadir=~/.multichain-player -port=19255 -rpcport=19254 game -daemon     
+      multichaind -datadir=~/.multichain-player -port=19255 -rpcport=19254 game -daemon
+      # publish own address on root stream when you start playing
+      multichain-cli -datadir=~/.multichain-player -port=19255 -rpcport=19254 publish game publish root playerEntry '{"json":{"address": "'$myaddress'"}}'     
     fi
   fi
 fi

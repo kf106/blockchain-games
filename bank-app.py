@@ -118,7 +118,7 @@ def login():
         print(result)    
         return render_template('bank/signup_success.html')       
     else:
-       return render_template('bank/signup_error.html') 
+        return render_template('bank/signup_error.html') 
 
 # Run the web app
 if __name__ == '__main__':
