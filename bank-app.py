@@ -83,7 +83,11 @@ def test_disconnect():
 def index():
     return render_template(
         'bank/index.html',
+<<<<<<< HEAD
          nodeaddress = getNodeAddress()
+=======
+         nodeaddress = nodeaddress
+>>>>>>> 6b867193c25e9b7627d0f0f44f42d18cea14361e
     )
 
 # Route for serving up the admin page
