@@ -34,6 +34,12 @@ else
 	mv multichaind multichain-cli multichain-util /usr/local/bin
 fi
 
+echo -e ""
+echo -e "--------------------------------------------------------------------------------"
+echo -e "Installing curl                                           "
+echo -e "--------------------------------------------------------------------------------"
+echo -e ""
+apt-get install curl
 
 echo -e ""
 echo -e "--------------------------------------------------------------------------------"
@@ -48,10 +54,10 @@ python --version
 apt-get install python3-venv
 
 # this creates a copy of the python3 environment in a folder called venv
-python3 -m venv venv
+python3 -m venv venv-bank
 
 # this activates the virtual python3 environment
-source venv/bin/activate
+source venv-bank/bin/activate
 
 # which is why this will show version 3.5
 python --version

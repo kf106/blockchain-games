@@ -7,11 +7,12 @@ if [ -z $BASH_VERSION ] ; then
 	exit 1
 fi
 
-set -x
+# uncomment for more debug info
+# set -x
 
 # This script uses python3.
 # Activate the virtual python3 environment
-source venv/bin/activate
+source venv-bank/bin/activate
 
 # Proof of concept - so minimal error checking!
 
@@ -50,5 +51,6 @@ fi
 
 # this runs the application
 echo -e "Starting asset bank interface"
+export FLASK_RUN_PORT=5050 
 export FLASK_APP=bank-app.py
 flask run --host=0.0.0.0
