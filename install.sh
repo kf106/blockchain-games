@@ -54,7 +54,7 @@ python --version
 apt-get install python3-venv
 
 # this creates a copy of the python3 environment in a folder called venv
-python3 -m venv venv-bank
+python3 -m venv venv
 
 # this activates the virtual python3 environment
 source venv-bank/bin/activate

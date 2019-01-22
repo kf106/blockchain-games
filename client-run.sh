@@ -7,11 +7,12 @@ if [ -z $BASH_VERSION ] ; then
 	exit 1
 fi
 
-set -x
+# uncomment for debug info
+# set -x
 
 # This script uses python3.
 # Activate the virtual python3 environment
-source venv-client/bin/activate
+source venv/bin/activate
 
 # Proof of concept - so minimal error checking!
 
@@ -69,10 +70,7 @@ fi
 echo -e "Starting client interface"
 # start local webserver and browser
 # in same shell, so quitting browser kills webserver
-# sh -c 'export FLASK_RUN_PORT=5002 ; export FLASK_APP=client-app.py ; flask run --host=0.0.0.0 & google-chrome --app=http://localhost:5002   & wait'
-export FLASK_RUN_PORT=5002 
-export FLASK_APP=client-app.py
-flask run --host=0.0.0.0
-google-chrome --app=http://localhost:5002
+sh -c 'FLASK_APP=client-app.py flask run --host=0.0.0.0 --port 5002 & google-chrome --app=http://localhost:5002'
+
 
 
