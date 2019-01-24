@@ -13,7 +13,7 @@ To run the asset bank, execute:
 
     ./bank-run.sh
     
-This starts a local webserver. See http://localhost:5000/admin for the high-tech admin panel.
+This starts a local webserver. See http://localhost:5050/admin for the high-tech admin panel (or you can specify a port as the first command line parameter).
 
 To run the player client for the first time, see the signup information at http://localhost:5000/ or if you're restarting the player client just execute:
 
@@ -25,5 +25,5 @@ The asset bank creates the original blockchain, issues assets (gold and xp in th
 ## Player Client
 The player client sets up a blockchain node, makes a signup request to the asset bank, and then launches the game. 
 
-Subsequently it just launches the game, as the blockchain node only needs configuration once.
+Subsequently it just launches the game, as the blockchain node only needs configuration once. If you accidentally close the client, the local webserver runs on port 5002.
 
