@@ -47,6 +47,10 @@ echo -e "Setting up Python virtual environment                                  
 echo -e "--------------------------------------------------------------------------------"
 echo -e ""
 
+# BUG: remove pkg-resources line in requirements.txt if it exists
+#     https://stackoverflow.com/questions/39577984/what-is-pkg-resources-0-0-0-in-output-of-pip-freeze-command
+sed -i '/pkg-resources==0.0.0/d' ./requirements.txt
+
 # this will probably show python version 2.7
 python --version
 
@@ -71,8 +75,6 @@ pip install --upgrade -r requirements.txt
 # when your project is complete use
 # $ pip freeze > requirements.txt
 # to make sure the requirements are up to date and the right packages are installed
-# BUG: remove pkg-resources line in requirements.txt if it exists!
-#     https://stackoverflow.com/questions/39577984/what-is-pkg-resources-0-0-0-in-output-of-pip-freeze-command
 # To upgrade all pip packages run
 # $ pip freeze |sed -ne 's/==.*//p' |xargs pip install -U --
 

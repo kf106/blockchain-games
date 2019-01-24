@@ -8,7 +8,7 @@ if [ -z $BASH_VERSION ] ; then
 fi
 
 # uncomment for more debug info
-# set -x
+set -x
 
 # This script uses python3.
 # Activate the virtual python3 environment
@@ -52,4 +52,4 @@ fi
 # this runs the application
 echo -e "Starting asset bank interface"
 export FLASK_APP=bank-app.py
-flask run --host=0.0.0.0 --port 5050
+flask run --host=0.0.0.0 --port ${1:-5050}

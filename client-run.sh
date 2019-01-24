@@ -8,7 +8,7 @@ if [ -z $BASH_VERSION ] ; then
 fi
 
 # uncomment for debug info
-# set -x
+set -x
 
 # This script uses python3.
 # Activate the virtual python3 environment
@@ -22,7 +22,7 @@ source venv/bin/activate
 
 # the asset bank is run in the default directory .multichain.
 # game nodes are run in a .multichain-player
-# two blockchains to work on one machine
+# ports are configured to allow two blockchain instances to work on one machine
 
 # check if the blockchain node is already configured
 if [ -e ~/.multichain-player/game/params.dat ]
@@ -58,7 +58,7 @@ else
       myaddress=$(multichaind -datadir=~/.multichain-player -port=19255 -rpcport=19254 $1 | grep -P -i -o -m 1 '(?<=grant )\S+' | sed -r 's/^\W|\W$//g')
       echo -e "My address: $myaddress"
       # POST section to sign up
-      curl --header "Content-Type: application/json" --request POST --data '{"address":"'"$myaddress"'"}' $2
+      curl --header "Content-Type: application/json" --request POST --data '{"address":"'"$myaddress"'"}' $2 
       # wait a few seconds for signup transaction to register
       echo -e "Starting game player blockchain daemon."
       multichaind -datadir=~/.multichain-player -port=19255 -rpcport=19254 game -daemon     
