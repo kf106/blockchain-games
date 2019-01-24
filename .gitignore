@@ -107,3 +107,6 @@ venv.bak/
 
 # local multichain folder
 .multichain/
+
+# fuse
+.fuse*
