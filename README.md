@@ -15,7 +15,7 @@ To run the asset bank, execute:
     
 This starts a local webserver. See http://localhost:5050/admin for the high-tech admin panel (or you can specify a port as the first command line parameter).
 
-To run the player client for the first time, see the signup information at http://localhost:5000/ or if you're restarting the player client just execute:
+To run the player client for the first time, see the signup information at http://localhost:5050/ or if you're restarting the player client just execute:
 
      ./client-run.sh
 
