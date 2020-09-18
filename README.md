@@ -3,7 +3,7 @@ This repository provides a sample setup for a blockchain-backed game, using Mult
 
 The game contains two main components: the asset bank and the player client.
 
-See (https://github.com/hobbit19/blockchain-games/blob/master/game-blockchain.pdf) for more details on how this basic example could be modified to actually generate an interesting game.
+See https://github.com/hobbit19/blockchain-games/blob/master/game-blockchain.pdf for more details on how this basic example could be modified to actually generate an interesting game.
 
 ## Installation
 For either asset bank or client run:
